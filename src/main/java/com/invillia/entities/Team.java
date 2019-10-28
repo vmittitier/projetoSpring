@@ -1,0 +1,54 @@
+package com.invillia.entities;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+public class Team {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long teamId;
+
+    @Column(nullable = false)
+    private String teamName;
+
+    @CreationTimestamp
+    private LocalDate createdAt;
+
+    @UpdateTimestamp
+    private LocalDate updatedAt;
+
+    public Team(){}
+
+    public Team(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public Long getId() {
+        return teamId;
+    }
+
+    public void setId(Long id) {
+        this.teamId = id;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+}

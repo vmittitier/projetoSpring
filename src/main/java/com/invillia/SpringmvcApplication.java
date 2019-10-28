@@ -1,4 +1,4 @@
-package com.invillia.springmvc;
+package com.invillia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,6 @@ public class SpringmvcApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringmvcApplication.class, args);
 	}
+
 
 }

@@ -1,4 +1,4 @@
-package com.invillia.springmvc;
+package com.invillia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>
+                id
+            </th>
+            <th>
+                teamName
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr th:each="team : ${teams}">
+            <td th:text="${team.id}">
+            </td>
+            <td th:text="${team.teamName}">
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
