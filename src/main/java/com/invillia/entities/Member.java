@@ -35,6 +35,7 @@ public class Member {
         this.team = team;
     }
 
+
     public LocalDate getCreatedAt() {
         return createdAt;
     }

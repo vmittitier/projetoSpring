@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring Team Area</title>
+</head>
+<body>
+<h1>Team Members List.</h1>
+<table>
+    <thead>
+    <tr>
+        <th>
+            id
+        </th>
+        <th>
+            memberName
+        </th>
+    </tr>
+
+    </thead>
+    <tbody>
+
+        <tr th:each="members : ${members}">
+            <td th:text="${members.id}"></td><td th:text="${members.memberName}"></td>
+            <form th:action="@{/teamservice/list-team-members/{id}(id=${members.id})}" method="get">
+
+            </form>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<table>
+    <tbody>
+    <tr>
+       <td>
+            <form action="/" method="get">
+                <input type="submit" value="Back to Index"></form>
+       </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

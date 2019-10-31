@@ -5,6 +5,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -16,6 +17,10 @@ public class Team {
     @Column(nullable = false)
     private String teamName;
 
+    @JoinColumn
+    @OneToMany(cascade = CascadeType.ALL)
+    private static List<Member> listMembers;
+
     @CreationTimestamp
     private LocalDate createdAt;
 
@@ -26,6 +31,14 @@ public class Team {
 
     public Team(String teamName) {
         this.teamName = teamName;
+    }
+
+    public List<Member> getListMembers() {
+        return listMembers;
+    }
+
+    public static void setListMembers(List<Member> listMembers) {
+        Team.listMembers = listMembers;
     }
 
     public Long getId() {
@@ -51,4 +64,5 @@ public class Team {
     public LocalDate getUpdatedAt() {
         return updatedAt;
     }
+
 }

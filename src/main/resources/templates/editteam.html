@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Spring Team Area</title>
+    </head>
+    <body>
+        <h1>Insert the new name of your team.</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+
+                        <form th:action="@{/teamservice/updateteam/{id}(id=${team.id})}" th:object="${team}" method="post">
+                            <input type="text"  name="editTeamName" id="editTeamName" width="200px" />
+                            <input type="submit" value="Update Team Name"  />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
