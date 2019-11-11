@@ -1,0 +1,33 @@
+.b_main{
+    background-color: rgb(223, 215, 215);
+    top:100%;
+    max-width: 100%;
+    align-content: center;
+}
+
+h3{
+    animation: blink 1s linear infinite;
+}
+
+.c_transition{
+    transition: background-color 0.5s ease;
+     background-color: rgb(194, 70, 70);
+}
+.row:hover{
+         background-color: rgb(43, 141, 19);
+}
+.row{
+    transition: background-color 0.5s ease;
+    background-color: rgba(223, 215, 215, 0);
+}
+
+.btn.btn-secondary:hover{
+    background-color: indigo;
+}
+
+
+@keyframes blink{
+0%{opacity: 0.3;}
+50%{opacity: 1;}
+100%{opacity: 0.3;}
+}
