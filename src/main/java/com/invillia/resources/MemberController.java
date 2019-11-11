@@ -34,18 +34,15 @@ public class MemberController {
     @GetMapping
     public String findAll(Model model) {
         List<Member> members = memberService.findAll();
-        System.out.println(members);
         model.addAttribute("member", members);
         return "memberservice";
     }
 
     @PostMapping("/updatemember/{id}")
     public String editForm(@PathVariable Long id, String editMemberName) {
-        System.out.println(id + "Update");
-         memberService.findById(id).ifPresent(member -> {
-             member.setMemberName(editMemberName);
-             System.out.println(member);
-             memberService.save(member);
+        memberService.findById(id).ifPresent(member -> {
+            member.setMemberName(editMemberName);
+            memberService.save(member);
         });
 
         return "redirect:/memberservice";

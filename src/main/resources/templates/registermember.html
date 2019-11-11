@@ -8,7 +8,7 @@
 <body>
 <h1>Insert a new member.</h1>
     <form action="/memberservice/registermember" id="teams" method="post">
-        <input type="text"  name="memberName" id="memberName" width="200px" />
+        <input type="text"  name="memberName" id="memberName" width="200px" required="true"/>
         <select name="teamName">
             <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team}"></option>
         </select>

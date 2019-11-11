@@ -11,8 +11,6 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     List<Member> findAllById(Long id);
-
     List<Member> findByTeamTeamId(Long id);
-
 }
 

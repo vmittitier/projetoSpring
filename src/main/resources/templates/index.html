@@ -1,25 +1,41 @@
 <html xmlns:th="http://www.springframework.org/schema/data/jaxb">
-<!--<link rel="stylesheet" th:href="@{/css/style.css}">-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
 <head>
-<title>Spring Team and Member Area</title>
+    <title>Spring Team and Member Area</title>
 </head>
-<body>
-<h3>SERVICE TYPE:</h3>
-   <div class="btn-group">
-        <p>
-            <form action="/teamservice" method="get">
-                <input type="submit" value="Team Services" class="btn btn-secondary">
-            </form>
-        </p>
-          <p>
-            <form action="/memberservice" method="get">
-                <input type="submit" value="Member Services" class="btn btn-secondary">
-            </form>
-         </p>
+
+<body class="jumbotron text-center">
+    <script th:src="@{css/ex1.js}">
+
+    </script>
+    <hr>
+    <div class="container">
+        <div class="container">
+            <h3 class="col-sm-12">SERVICE TYPE</h3>
+        </div>
+
+        <div class="btn-group">
+            <div class="col-sm-6 ">
+                <form action="/teamservice" method="get">
+                    <input type="submit" value="Team Services" class="btn btn-secondary">
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <form action="/memberservice" method="get">
+                    <input type="submit" value="Member Services" class="btn btn-secondary">
+                </form>
+            </div>
+
+        </div>
     </div>
+    <hr>
 </body>
+
 </html>
