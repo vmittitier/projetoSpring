@@ -1,12 +1,18 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
-    <title>Spring Team Area</title>
+    <title>Spring Member Area</title>
 </head>
 <body>
-<h1>Insert a new team.</h1>
-<form action="/teamservice/teamregister" method="post">
-    <input type="text"  name="teamName" id="teamName" width="200px" />
-    <input type="submit" value="Register"  />
-</form>
+<h1>Insert a new member.</h1>
+    <form action="/memberservice/registermember" id="teams" method="post">
+        <input type="text"  name="memberName" id="memberName" width="200px" />
+        <select name="teamName">
+            <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team}"></option>
+        </select>
+        <input type="submit" value="Register"  />
+    </form>
 </body>
 </html>

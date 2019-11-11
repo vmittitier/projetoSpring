@@ -1,6 +1,5 @@
 package com.invillia.services;
 
-import com.invillia.entities.Member;
 import com.invillia.entities.Team;
 import com.invillia.repository.MemberRepository;
 import com.invillia.repository.TeamRepository;
@@ -41,8 +40,7 @@ public class TeamService {
         repository.save(team);
     }
 
-    public List<Member> findAllById(Long id){
-        return memberRepository.findAllById(id);
-    }
-
+//    public List<Team> findAllById(Long id) {
+//        return repository.fin(id);
+//    }
 }

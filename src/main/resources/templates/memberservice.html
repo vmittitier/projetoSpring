@@ -1,4 +1,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
     <title>
 
@@ -9,21 +12,48 @@
     <thead>
         <tr>
             <th>
-                id
+                ID
             </th>
             <th>
-                teamName
+                Member
+            </th>
+            <th>
+                Team
             </th>
         </tr>
 
     </thead>
     <tbody>
-        <tr th:each="team : ${teams}">
-            <td th:text="${team.id}">
+        <tr th:each="member : ${member}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.memberName}"></td>
+            <td th:text="${member.team}"></td>
+            <td>
+                <form th:action="@{/memberservice/editmember/{id}(id=${member.id})}" method="get">
+                    <input type="submit" value="Edit Name">
+                </form>
             </td>
-            <td th:text="${team.teamName}">
+            <td>
+                <form th:action="@{/memberservice/delete/{id}(id=${member.id})}" method="post">
+                    <input type="submit" value="Remove Member">
+                </form>
             </td>
         </tr>
+    </tbody>
+</table>
+<hr>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <form action="/memberservice/registermember" method="get">
+                <input type="submit" value="New Member"></form>
+        </td>
+        <td>
+            <form action="/" method="get">
+                <input type="submit" value="Back to Index"></form>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>

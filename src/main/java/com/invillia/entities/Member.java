@@ -18,8 +18,8 @@ public class Member {
     @Column(nullable = false)
     private String memberName;
 
-    @JoinColumn(nullable = false)
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Team team;
 
     @CreationTimestamp
@@ -66,5 +66,14 @@ public class Member {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", memberName='" + memberName + '\'' +
+                ", team=" + team +
+                '}';
     }
 }

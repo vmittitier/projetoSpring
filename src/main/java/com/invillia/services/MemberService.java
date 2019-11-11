@@ -1,7 +1,6 @@
 package com.invillia.services;
 
 import com.invillia.entities.Member;
-import com.invillia.entities.Team;
 import com.invillia.repository.MemberRepository;
 import com.invillia.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,29 +19,25 @@ public class MemberService {
     private TeamRepository repository;
 
 
-    public void insertTeam(Team team) {
-        repository.save(team);
+   public List<Member> findAll() {
+        return memberRepository.findAll();
     }
 
-    public List<Team> findAll() {
-        return repository.findAll();
+    public void deleteMemberById(Long id) {
+        memberRepository.deleteById(id);
     }
 
-    public void deleteTeamById(Long id) {
-        repository.deleteById(id);
+    public Optional<Member> findById(Long id) {
+        Optional<Member> member = memberRepository.findById(id);
+        return member;
     }
 
-    public Optional<Team> findById(Long id) {
-        Optional<Team> team = repository.findById(id);
-        return team;
+    public void save(Member member) {
+        memberRepository.save(member);
     }
 
-    public void save(Team team) {
-        repository.save(team);
-    }
 
-    public List<Member> findAllById(Long id){
-        return memberRepository.findAllById(id);
+    public List<Member> findByTeamId(Long id) {
+       return memberRepository.findByTeamTeamId(id);
     }
-
 }

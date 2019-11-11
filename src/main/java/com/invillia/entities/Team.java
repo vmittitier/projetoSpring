@@ -17,9 +17,8 @@ public class Team {
     @Column(nullable = false)
     private String teamName;
 
-    @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL)
-    private static List<Member> listMembers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
+    private List<Member> listMembers;
 
     @CreationTimestamp
     private LocalDate createdAt;
@@ -37,8 +36,8 @@ public class Team {
         return listMembers;
     }
 
-    public static void setListMembers(List<Member> listMembers) {
-        Team.listMembers = listMembers;
+    public void setListMembers(List<Member> listMembers) {
+        listMembers = listMembers;
     }
 
     public Long getId() {
@@ -65,4 +64,8 @@ public class Team {
         return updatedAt;
     }
 
+    @Override
+    public String toString() {
+        return teamName;
+    }
 }

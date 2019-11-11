@@ -22,34 +22,30 @@ public class TeamController{
 
     @GetMapping("/list-team-members/{id}")
     public String findAllMembers(@PathVariable Long id,Model model){
-        List<Member> members = teamService.findAllById(id);
-        System.out.println("Entrou");
+        Optional<Team> team = teamService.findById(id);
+        List<Member> members = team.get().getListMembers();
         model.addAttribute("members",members);
-        System.out.println(members);
+        model.addAttribute("teamName",team.get());
         return "list-team-members";
     }
 
     @GetMapping
     public String findAll(Model model) {
         List<Team> teams = teamService.findAll();
-        Optional<Team> team = teamService.findById(1L);
-        System.out.println(team.get().getListMembers());
         model.addAttribute("teams", teams);
         return "teamservice";
     }
 
     @PostMapping("/updateteam/{id}")
-    public String editForm(@PathVariable Long id, @Valid Team team, String editTeamName) {
-        System.out.println(id+"Update");
+    public String editForm(@PathVariable Long id, @Valid Team team, String editTeamName,Model model) {
         team.setTeamName(editTeamName);
         teamService.save(team);
+        model.addAttribute("team",team);
         return "redirect:/teamservice";
-
     }
 
     @GetMapping("/editteam/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model){
-        System.out.println(id+"Edit");
         Team team = teamService.findById(id).get();
         model.addAttribute("team",team);
         return "editteam";
@@ -71,13 +67,6 @@ public class TeamController{
         teamService.insertTeam(new Team(teamName));
         return "redirect:/teamservice";
     }
-
-
-
-
-
-
-
 
 }
 

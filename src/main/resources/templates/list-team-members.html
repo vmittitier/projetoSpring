@@ -1,23 +1,24 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <head>
     <title>Spring Team Area</title>
 </head>
 <body>
-<h1>Team Members List.</h1>
+<h1> [[${teamName}]] Members List.</h1>
 <table>
     <thead>
     <tr>
         <th>
-            id
+            ID
         </th>
         <th>
-            memberName
+            Nome
         </th>
     </tr>
-
     </thead>
     <tbody>
-
         <tr th:each="members : ${members}">
             <td th:text="${members.id}"></td><td th:text="${members.memberName}"></td>
             <form th:action="@{/teamservice/list-team-members/{id}(id=${members.id})}" method="get">
@@ -31,8 +32,8 @@
     <tbody>
     <tr>
        <td>
-            <form action="/" method="get">
-                <input type="submit" value="Back to Index"></form>
+            <form action="/teamservice" method="get">
+                <input type="submit" value="Back to Team List"></form>
        </td>
     </tr>
     </tbody>
